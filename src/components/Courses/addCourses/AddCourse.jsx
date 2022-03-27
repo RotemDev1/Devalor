@@ -10,13 +10,8 @@ export const AddCourse = () => {
 
     const toggleCourse = useSelector(state => state.uiModule.toggleAddCourse);
 
-    useEffect(() => {
-        console.log(toggleCourse);
-    }, [])
-
     const setToggleAddCourse = value => {
         dispatch(toggleAddCourse(value));
-        console.log(toggleCourse);
     }
 
 
@@ -25,8 +20,6 @@ export const AddCourse = () => {
             <Card>
                 <button className="btn btn-toggle" onClick={() => setToggleAddCourse()}>ADD NEW COURSE</button>
                 {toggleCourse && < CourseForm />}
-
-
             </Card>
         </div>
     );

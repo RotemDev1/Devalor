@@ -1,9 +1,11 @@
 import React from "react";
 import "./home.css"
 import home from '../../assets/home.jpeg';
+import { useDispatch, useSelector } from "react-redux";
 
 
 export const Home = (props) => {
+
     return (
         <div className="header-container">
             <div className='main-image'>

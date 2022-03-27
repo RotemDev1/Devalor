@@ -9,10 +9,8 @@ export const dataService = {
 }
 
 function initData() {
-
     storageService.newEntity('user', Users);
     storageService.newEntity('courses', Courses);
-
 }
 
 function removeData() {

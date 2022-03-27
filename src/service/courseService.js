@@ -1,15 +1,40 @@
-import { Courses } from "../data/dummyCourses"
-import { storageService } from "./generalService/asyncStorageService";
+// import { Courses } from "../data/dummyCourses"
+// import { storageService } from "./generalService/asyncStorageService";
+
+import { httpService } from "./generalService/httpService";
 
 export const courseService = {
-    // query,
+    query,
     add,
-    remove,
-    update,
+    // remove,
+    // update,
     getById
 }
 
-const gCourses = Courses;
+async function query(filter) {
+    const courses = await httpService.get('course');
+    return courses;
+}
+
+async function add(course) {
+    if (course._id) {
+        const res = await httpService.put(`course/${course._id}`, course)
+        return res
+    } else {
+        const res = await httpService.post(`course`, course)
+        return res
+    }
+}
+
+function getById(courseId) {
+    return httpService.get(`course/${courseId}`)
+}
+
+// function update() {
+
+// }
+
+// const gCourses = Courses;
 
 
 // function query(filter = "") {
@@ -35,22 +60,18 @@ const gCourses = Courses;
 //     return filterCourses;
 // }
 
-async function add(course) {
-    const addedCourse = await storageService.post('courses', course);
-}
+// async function add(course) {
+//     const addedCourse = await storageService.post('courses', course);
+// }
 
-function remove(id) {
-    const updateCourse = gCourses.filter(course => course._id !== id)
+// function remove(id) {
+//     const updateCourse = gCourses.filter(course => course._id !== id)
 
-}
-
-function update() {
-
-}
+// }
 // function getPostByUser(userId) {
 //     return storageService.query('posts').then(posts =>
 //         posts.filter(post => post.userId === userId))
 // }
-function getById(_id) {
-    return Courses.find(course => course._id === _id)
-}
+// function getById(_id) {
+//     return Courses.find(course => course._id === _id)
+// }

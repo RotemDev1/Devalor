@@ -1,6 +1,6 @@
 import { HashRouter as Router, Switch, Route } from "react-router-dom";
 import { routes } from "./routes.js";
-import { Navigation } from '../src/components/Navigation/Navigation';
+import { Navigation } from './components/Navigation/Navigation';
 import { dataService } from './service/generalService/dataService';
 import React, { useEffect } from "react";
 import "../src/assets/font/font.css";

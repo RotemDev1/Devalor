@@ -1,12 +1,12 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import TextField from "@material-ui/core/TextField";
 import { useState } from "react";
-import { courseService } from "../../service/courseService";
+import { addCourse } from "../../store/actions/courseActions";
 import { useHistory } from "react-router";
 
-
-export const CourseForm = (props) => {
+export const CourseForm = () => {
     const history = useHistory();
+    const dispatch = useDispatch();
     const loggedInUser = useSelector((state) => state.userModule.loggedInUser);
     const [language, setLanguage] = useState("");
     const [mentor, setMentor] = useState("");
@@ -15,16 +15,12 @@ export const CourseForm = (props) => {
         const value = event.target.value;
         setLanguage(value);
     };
+
     const handleMentor = (event) => {
         const value = event.target.value;
         setMentor(value);
     };
-
-
-
-    const publishCourse = async (event) => {
-        console.log(event);
-
+    const publishCourse = async () => {
         const course = {
             userId: loggedInUser._id,
             language: language,
@@ -33,11 +29,8 @@ export const CourseForm = (props) => {
             // language: language,
 
         }
-        console.log(course);
-
-        await courseService.add(course);
+        await dispatch(addCourse(course));
         history.push(`/courses`)
-
     };
     return (
         <div className="addArticle">
