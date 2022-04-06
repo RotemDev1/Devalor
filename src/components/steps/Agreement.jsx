@@ -13,6 +13,8 @@ const Agreement = () => {
         const newUser = new User(user.username, user.age, user.petName, user.petType);
         newUser.setAgreement(true)
         dispatch(setUser(newUser))
+        alert(`Name : ${newUser.username} Age: ${newUser.age} Pet Name: ${newUser.petName} Type: ${newUser.petType} Agreement: ${newUser.agreement}`);
+
     }
 
     const setAgreement = (value) => {

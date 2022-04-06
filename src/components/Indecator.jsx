@@ -11,8 +11,8 @@ const Indecator = () => {
     return (
         <div className="indicator">
             <label className={`stepItem ${indicatorState == 1 ? active : ""}`}>1</label>
-            <label className={`stepItem ${indicatorState == 2 ? active : ""}`}>2</label>
-            <label className={`stepItem ${indicatorState == 3 ? active : ""}`}>3</label>
+            {[2, 3].find(el => el == indicatorState) && <label className={`stepItem ${indicatorState == 2 ? active : ""}`}>2</label>}
+            {indicatorState == 3 && <label className={`stepItem ${indicatorState == 3 ? active : ""}`}>3</label>}
         </div>
     )
 }
