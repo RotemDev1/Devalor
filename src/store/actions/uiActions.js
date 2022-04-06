@@ -1,10 +1,9 @@
-export function toggleAddCourse(value) {
-
+export function nextSteps(value) {
     return async dispatch => {
         try {
-            dispatch({ type: 'TOGGLE_ADD_COURSE', value })
+            dispatch({ type: 'NEXT_INDEX_STEPS', value })
         } catch (err) {
-            console.log("UIActions: err in toggle ");
+            console.log("UIActions: err in next ");
         }
     }
 }

@@ -1,16 +1,11 @@
 const initialState = {
-    toggleLogin: true,
-    toggleAddCourse: false
+    indexPage: 1
 }
 
 export function uiReducer(state = initialState, action = {}) {
     switch (action.type) {
-        case 'TOGGLE_LOGIN':
-            const toggleLogin = !state.toggleLogin;
-            return { ...state, toggleLogin: toggleLogin }
-        case 'TOGGLE_ADD_COURSE':
-            const toggleCourse = !state.toggleAddCourse;
-            return { ...state, toggleAddCourse: toggleCourse }
+        case 'NEXT_INDEX_STEPS':
+            return { ...state, indexPage: action.value }
         default:
             return state
     }

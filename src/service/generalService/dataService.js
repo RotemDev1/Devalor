@@ -1,4 +1,3 @@
-import { Courses } from "../../data/dummyCourses";
 import { Users } from "../../data/dummyUsers";
 
 import { storageService } from "./asyncStorageService";
@@ -10,7 +9,6 @@ export const dataService = {
 
 function initData() {
     storageService.newEntity('user', Users);
-    storageService.newEntity('courses', Courses);
 }
 
 function removeData() {
