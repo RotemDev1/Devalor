@@ -3,13 +3,13 @@
 
 
 const initialState = {
-  loggedInUser: null,
+  user: null,
 }
 
 export function userReducer(state = initialState, action = {}) {
   switch (action.type) {
     case 'SET_USER':
-      return { ...state, loggedInUser: action.user }
+      return { ...state, user: action.user }
     default:
       return state
   }
