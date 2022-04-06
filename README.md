@@ -1,5 +1,5 @@
-# Devalor
-Devalor
+# Devalore
+Devalore assignment 
 
 ### How to run?
 1. run 'npm i' / 'npm install'.
